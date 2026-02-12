@@ -55,7 +55,8 @@ graph TB
 
     CRON -- "prompt" --> AGENT
     HB -- "tick" --> AGENT
-    HEALTH -.-> AGENT
+    HEALTH -- "status" --> Bus
+    HEALTH -- "status" --> Channels
 
     AGENT --- MEM
     SDK --- WS
@@ -137,12 +138,15 @@ src/agp/
 │   └── schema.py       # Pydantic v2 config schema
 ├── cron/
 │   └── service.py      # Scheduled task runner
-├── health/
-│   └── service.py      # HTTP health endpoint
+├── health.py           # HTTP health endpoint
 ├── heartbeat/
 │   └── service.py      # Proactive agent wake-ups
 ├── memory/
-│   └── store.py        # File-based memory (MEMORY.md + daily notes)
+│   ├── store.py        # File-based memory (MEMORY.md + daily notes)
+│   └── sessions.py     # Persistent session tracking
+├── tools/
+│   ├── message.py      # Outbound message sending tool
+│   └── schedule.py     # Task scheduling tool
 └── cli/
     └── commands.py     # Typer CLI (agent, gateway, status, heartbeat)
 ```
