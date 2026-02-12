@@ -15,7 +15,7 @@ Unlike typical chat bots that are trapped in a browser tab, AGP runs as a **pers
 ## Why we built it
 We wanted a personal assistant that was **truly agentic** but **technically simple**.
 
-Previous versions of Nanobot were complex 2,000-line monoliths handling their own agent loops, tool execution, and LLM provider logic. This was brittle and hard to maintain.
+Previous versions were complex 2,000-line monoliths handling their own agent loops, tool execution, and LLM provider logic. This was brittle and hard to maintain.
 
 **The Solution**: We rebuilt everything on top of the **Claude Agent SDK**. 
 - The SDK handles the "brain" (agent loop, tool calling, error recovery).
